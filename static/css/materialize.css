@@ -1,4 +1,4 @@
-/*!
+/* /*!
  * Materialize v1.0.0-rc.1 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
@@ -992,7 +992,7 @@
 }
 
 .teal-text.text-lighten-5 {
-  color: #e0f2f1 !important;
+  color: #008376 !important;
 }
 
 .teal.lighten-4 {
@@ -1015,9 +1015,9 @@
   background-color: #4db6ac !important;
 }
 
-.teal-text.text-lighten-2 {
-  color: #009688 !important;
-}
+/* .teal-text.text-lighten-2 { */
+  /* color: #009688 !important; */
+/* } */
 
 .teal.lighten-1 {
   background-color: #26a69a !important;
@@ -9073,4 +9073,4 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
-}
+} 
