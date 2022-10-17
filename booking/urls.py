@@ -1,8 +1,9 @@
 from . import views
 from django.urls import path
-from django.conf import settings
+from booking.views import News
 
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name='home'),
+    path('', views.BookingList.as_view(), name='home'),
+    path('news/', News.as_view(), name="news")
 ]
