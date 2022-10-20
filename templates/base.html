@@ -19,8 +19,13 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'home' %}">Home Page</a></li>
         <li><a href="{% url 'news' %}">News Page</a></li>
-        {% comment %}<!-- <li><a href="{% url '' %}">login Page</a></li>
-        <li><a href="{% url '' %}"> book in</a></li> -->{% endcomment %}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_logout' %}">Logout</a></li>
+        <li><a href="#">Book in</a></li>
+        {% else %}
+        <li><a href="{% url 'account_signup' %}">Register</a></li>
+        <li><a href="{% url 'account_login' %}">Login Page</a></li>
+        {% endif %}
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
