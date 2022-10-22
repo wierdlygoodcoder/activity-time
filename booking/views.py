@@ -11,7 +11,6 @@ class BookingList(generic.ListView):
 
 
 class News(View):
-
     def get(self, request, *args, **kwargs):
         # queryset = Post.objects.filter(status=1)
         # post = get_object_or_404(queryset, slug=slug)
@@ -31,3 +30,34 @@ class News(View):
             #     "comment_form": CommentForm()
             # },
         )
+
+
+class Booking(View):
+    def get(self, request, *args, **kwargs):
+        # queryset = Post.objects.filter(status=1)
+        # post = get_object_or_404(queryset, slug=slug)
+        # comments = post.comments.filter(approved=True).order_by("-created_on")
+        # liked = False
+        # if post.likes.filter(id=self.request.user.id).exists():
+        #     liked = True
+
+        return render(
+            request,
+            "booking.html",
+            # {
+            #     "post": post,
+            #     "comments": comments,
+            #     "commented": False,
+            #     "liked": liked,
+            #     "comment_form": CommentForm()
+            # },
+        )
+
+
+# framework
+# def index(request):
+#     bookings = User.objects.all()
+
+#     context = {"bookings": bookings}
+
+#     return render(request, "news.html", context)

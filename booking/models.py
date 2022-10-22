@@ -14,7 +14,7 @@ activity_choices = \
         'Understanding How To Play Certain Game'),
      ('advice on canvas poainting', 'Advice On Canvas Painting')]
 
-staff_memebers = \
+staff_members = \
     [('1', 'Gareth'),
      ('2', 'Emily'),
      ('3', 'Rodger'),
@@ -22,11 +22,6 @@ staff_memebers = \
      ('5', 'Alan'),
      ('6', 'Stevephen'),
      ('7', 'Patrick')]
-
-
-def default_user():
-    user = User(username="john", email="john@hotmail.com")
-    return user.id
 
 
 class Booking(models.Model):
@@ -43,8 +38,9 @@ class Booking(models.Model):
     what_they_would_like_to_do = models.CharField(max_length=50,
                                                   choices=activity_choices,
                                                   default='bulding models')
-    whom_with = models.CharField(max_length=50, choices=staff_memebers,
-                                 default='Greg')
+    assigned_staff_member = models.CharField(max_length=50,
+                                             choices=staff_members,
+                                             default='Greg')
 
     def __str__(self):
         return self.first_name
