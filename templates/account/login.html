@@ -6,87 +6,99 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div id="index-banner" class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <br><br>
-      <h1 class="header center white-text">{% trans "Sign In" %}</h1>
-      <br><br>
-
-    </div>
-  </div>
-  <div class="parallax"><img src="{{ MEDIA_URL }}background1.jpg" alt="people paniting on canvus in a workshop"></div>
-</div>
-
-
-<div class="container">
+<div id="index-banner" class="container-fluid-fluid">
   <div class="section">
-
-    <!--   Icon Section   -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="scrollable">
+            <img src="{{ MEDIA_URL }}background1.jpg" class="w-100 img-responsive" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+        <h1 class="header center">Sign In</h1>
+        <div class="row center">
+        </div>
+      </div>
+    </div>
+<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
+  <div class="container-fluid">
     <div class="row">
-      <div class="col s12 m12">
-
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <p>{% blocktrans %}Do you need to sign up <a href="{{ signup_url }}">Sign up</a>.{% endblocktrans %}</p>
           <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form.as_p }}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="primaryAction btn waves-effect waves-light" type="submit">
-              {% trans "Sign In" %}<i class="material-icons right">send</i>
+            <button class="btn btn-primary btn-lg" type="submit" value="submit">
+              {% trans "Sign In" %}<i class="fa-solid fa-paper-plane-top"></i>
             </button>
           </form>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h2 class="center brown-text"><i class="material-icons"></i></h2>
 
+  <div class="container-fluid">
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="scrollable">
+          <img src="{{ MEDIA_URL }}background2.jpg" class="w-100 " alt="Responsive image">
         </div>
       </div>
     </div>
 
-  </div>
-</div>
-
-
-<div class="parallax-container valign-wrapper">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <div class="row center">
-        <h5 class="header col s12 light"></h5>
+    <div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col s12 center">
+              <h3><i class="mdi-content-send brown-text"></i></h3>
+              <h4 class="text-center">Contact Us</h4>
+              <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
+                ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque,
+                posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl
+                maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida
+                ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="parallax"><img src="{{ MEDIA_URL }}background2.jpg" alt="Unsplashed background img 2"></div>
-</div>
 
-<div class="container">
-  <div class="section">
 
+  <div class="container-fluid">
+    <div class="section">
+      <div class="container-fluid">
+        <div class="row center">
+          <h5 class="header col s12 light">
+            <!-- {% for item in bookings %}
+              {{ item.firstname }}
+              {{ item.lastname }}
+              {{ item.date }}
+            {% endfor %} -->
+          </h5>
+        </div>
+      </div>
+    </div>
     <div class="row">
-      <div class="col s12 center">
-        <h3><i class="mdi-content-send brown-text"></i></h3>
-        <h4>Contact Us</h4>
-        <p class="left-align light"></p>
+      <div class="col">
+        <div class="scrollable">
+          <img src="{{ MEDIA_URL }}background3.jpg" alt="Unsplashed background img 3" class="w-100 h50"
+            alt="Responsive image">
+        </div>
       </div>
     </div>
-
-  </div>
-</div>
-
-
-<div class="parallax-container valign-wrapper">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <div class="row center">
-        <h5 class="header col s12 light"></h5>
-      </div>
-    </div>
-  </div>
-  <div class="parallax"><img src="{{ MEDIA_URL }}background3.jpg" alt="Unsplashed background img 3"></div>
-</div>
-
-
 {% endblock %}
