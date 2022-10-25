@@ -27,9 +27,9 @@ staff_members = \
 class Booking(models.Model):
     first_name = models.CharField(max_length=200, unique=True)
     last_name = models.CharField(max_length=200, unique=False)
-    slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    booking_date = models.DateTimeField(auto_now_add=False)
+    booking_date = models.DateField(auto_now_add=False)
+    booking_time = models.TimeField(max_length=30)
     email = models.EmailField(max_length=100,)
     phone_number = PhoneNumberField(blank=True, region="GB")
     user_id = models.ForeignKey(

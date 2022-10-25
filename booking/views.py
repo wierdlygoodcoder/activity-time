@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Booking
 from django.views.generic.base import View
+from django.db.models.query import QuerySet
+from .models import Booking
+from .forms import BookingForm
 
 
 class BookingList(generic.ListView):
@@ -12,9 +14,10 @@ class BookingList(generic.ListView):
 
 class News(View):
     def get(self, request, *args, **kwargs):
-        # queryset = Post.objects.filter(status=1)
-        # post = get_object_or_404(queryset, slug=slug)
-        # comments = post.comments.filter(approved=True).order_by("-created_on")
+        all_bookings = Booking.objects.all()
+        # post = get_object_or_404(queryset)
+        # comments =
+        # post.comments.filter(approved=True).order_by("-created_on")
         # liked = False
         # if post.likes.filter(id=self.request.user.id).exists():
         #     liked = True
@@ -32,32 +35,54 @@ class News(View):
         )
 
 
-class Booking(View):
+class Create_Booking(View):
     def get(self, request, *args, **kwargs):
-        # queryset = Post.objects.filter(status=1)
-        # post = get_object_or_404(queryset, slug=slug)
-        # comments = post.comments.filter(approved=True).order_by("-created_on")
+        all_bookings = Booking.objects.all()
+        # post = get_object_or_404(queryset)
+        # comments =
+        # post.comments.filter(approved=True).order_by("-created_on")
+        # liked = False
+        # if post.likes.filter(id=self.request.user.id).exists():
+        #     liked = True
+        # print(all_bookings)
+        return render(
+            request,
+            "booking.html",
+            {
+                # "all_bookings": all_bookings,
+                #     "comments": comments,
+                #     "commented": False,
+                #     "liked": liked,
+                "bookingform": BookingForm()
+            },
+        )
+
+    def post(self, request, *args, **kwargs):
+        all_bookings = Booking.objects.all()
+        # post = get_object_or_404(all_bookings)
+        # comments =
+        # post.comments.filter(approved=True).order_by("-created_on")
         # liked = False
         # if post.likes.filter(id=self.request.user.id).exists():
         #     liked = True
 
+        booking_form = BookingForm(data=request.POST)
+        if booking_form.is_valid():
+            booking_form.instance.email = request.user.email
+            booking_form.instance.name = request.user.username
+            booking = bookingform.save(commit=False)
+            booking.save()
+        else:
+            booking_form = BookingForm()
+        # print(booking.instance.booking_time)
         return render(
             request,
-            "booking.html",
-            # {
-            #     "post": post,
-            #     "comments": comments,
-            #     "commented": False,
-            #     "liked": liked,
-            #     "comment_form": CommentForm()
-            # },
+            "index.html",
+            {
+                "all_bookings": all_bookings,
+                # "comments": comments,
+                # "commented": True,
+                "bookingform": BookingForm(),
+                # "liked": liked
+            },
         )
-
-
-# framework
-# def index(request):
-#     bookings = User.objects.all()
-
-#     context = {"bookings": bookings}
-
-#     return render(request, "news.html", context)
