@@ -30,10 +30,10 @@
 
           <h3> Book in in here for an awesome time </h3>
           <p>hello {{ user.username}}</p>
-          <form method="post" style="margin-top: 1rem;">
-            {{ bookingform | crispy }}
+          <form method="post" action="booking.post" style="margin-top: 1rem;">
             {% csrf_token %}
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            {{ bookingform | crispy }}
+            <button type="submit" class="btn btn-primary btn-lg" value="submit">Submit</button>
           </form>
 
 

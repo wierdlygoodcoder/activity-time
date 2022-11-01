@@ -42,5 +42,8 @@ class Booking(models.Model):
                                              choices=staff_members,
                                              default='Greg')
 
+    class Meta:
+        unique_together = [['booking_date', 'booking_time']]
+
     def __str__(self):
         return self.first_name

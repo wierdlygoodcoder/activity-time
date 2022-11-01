@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
-
+from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 from .models import Booking
 
 
@@ -22,3 +23,9 @@ class BookingForm(forms.ModelForm):
             'booking_date': DateInput(),
             'booking_time': TimeInput(),
         }
+
+    # def clean(self):
+    #     booking_date = self.cleaned_data['booking_date']
+    #     if Booking.objects.filter(booking_date=booking_date).exists():
+    #         raise ValidationError("bookings already exists")
+    #     return render(request, "booking.html")
