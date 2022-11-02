@@ -2,94 +2,97 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Activity booking site</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="activty booking allows you to book from a wide range of activtys.">
   <script src="https://kit.fontawesome.com/956458a6ca.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel='stylesheet' href="{% static 'css/style.css' %}" type="text/css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-midnight-green" role="navigation">
-        <div class="container-fluid">
-            <a href="{% url 'home' %}" class="navbar-brand">Hobby Booking</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav nav-pills">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'news' %}">News Page</a></li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Book in</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login Page</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-      <div class="row">
-          <div class="col-md-8 offset-md-2">
-              {% for message in messages %}
-              <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                  {{ message | safe }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endfor %}
-          </div>
+  <nav class="navbar navbar-expand-lg bg-midnight-green">
+    <div class="container-fluid ">
+      <a href="{% url 'home' %}" class="navbar-brand text-blue-purple">Hobby Booking</a>
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav-pills">
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'home' %}">Home Page</a></li>
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'news' %}">News Page</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'account_logout' %}">Logout</a></li>
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'booking' %}">Book in</a></li>
+          {% else %}
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'account_signup'%}">Register</a></li>
+          <li class="nav-item"><a class="text-blue-purple" href="{% url 'account_login' %}">Login Page</a></li>
+          {% endif %}
+        </ul>
       </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
   {% block content %}
   {% endblock content %}
-  <footer class="bg-blue-purple">
-    <div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
+  <footer class="bg-midnight-green">
+    <div
+      class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6">
-          <h5>Rules for the activitys you want to do</h5>
-          <p>here we want everyone to have fun and enjoy there time and the activity that they are doing you can do this using these basic rules:
-            <li>Allow everyone space to do there activty.</li>
-            <li>Have fun</li>
-            <li>Have conscutive critisium</li>
-            <li>Understand that everyone is learning</li>
-            <li>And have fun</li>
-          </p>
-
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <h5 class="text-center">Settings</h5>
-          <ul class="text-center text-white">
-            <li><a href="#!" class="text-decoration-none">Link 1</a></li>
-            <li><a href="#!" class="text-decoration-none">Link 2</a></li>
-            <li><a href="#!" class="text-decoration-none">Link 3</a></li>
-            <li><a href="#!" class="text-decoration-none">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <h5 class="text-center">Social media</h5>
-          <ul class="text-center">
-            <li><a href="https://www.facebook.com/" class="text-decoration-none" target="_blank">Facebook</a></li>
-            <li><a href="https://www.twitter.com/" class="text-decoration-none" target="_blank">Twitter</a></li>
-            <li><a href="https://www.linkedin.co.uk/" class="text-decoration-none" target="_blank">Linked in</a></li>
-            <li><a href="https://www.youtube.co.uk/" class="text-decoration-none" target="_blank">Youtube</a></li>
-          </ul>
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            <h5>Rules for the activitys you want to do</h5>
+            <p>
+              here we want everyone to have fun and enjoy there time and the activity that they are doing you can do
+              this using these basic rules:
+            </p>
+            <ul>
+              <li class="text-wrap">Allow everyone space to do there activty.</li>
+              <li>Have fun</li>
+              <li class="text-wrap">Have conscutive critisium</li>
+              <li class="text-wrap">Understand that everyone is learning</li>
+              <li>And have fun</li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            <h5 class="text-center">Social media</h5>
+            <ul class="text-center">
+              <li><a href="https://www.facebook.com/" class="text-blue-purple" target="_blank">Facebook</a></li>
+              <li><a href="https://www.twitter.com/" class="text-blue-purple" target="_blank">Twitter</a></li>
+              <li><a href="https://www.linkedin.co.uk/" class="text-blue-purple" target="_blank">Linked in</a></li>
+              <li><a href="https://www.youtube.co.uk/" class="text-blue-purple" target="_blank">Youtube</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
 </html>

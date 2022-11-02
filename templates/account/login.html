@@ -12,20 +12,18 @@
       <div class="row">
         <div class="col-12">
           <div class="scrollable">
-            <img src="{{ MEDIA_URL }}background1.jpg" class="w-100 img-responsive" alt="Responsive image">
+            <img src="{{ MEDIA_URL }}background1.jpg" class="w-100 img-responsive" alt="canvas painting">
           </div>
         </div>
       </div>
-        <h1 class="header center">Sign In</h1>
-        <div class="row center">
-        </div>
-      </div>
+      <h1 class="text-center text-capitalize">Login</h1>>
     </div>
-<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <p>{% blocktrans %}Do you need to sign up <a href="{{ signup_url }}">Sign up</a>.{% endblocktrans %}</p>
+  </div>
+  <div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="text-center">
+          <p>{% blocktrans %}Do you need to sign up <a href="{{ signup_url }}">Sign up</a>.{% endblocktrans %}</p>
           <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form.as_p }}
@@ -43,62 +41,47 @@
 </div>
 
 
-  <div class="container-fluid">
-    <div class="section">
-      <div class="container-fluid">
-        <div class="row">
-        </div>
-      </div>
-    </div>
+<div class="container-fluid">
+  <div class="section">
     <div class="row">
       <div class="col-12">
         <div class="scrollable">
-          <img src="{{ MEDIA_URL }}background2.jpg" class="w-100 " alt="Responsive image">
+          <img src="{{ MEDIA_URL }}background2.jpg" class="w-100" alt="Playing a Board Game">
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="col s12 center">
-              <h3><i class="mdi-content-send brown-text"></i></h3>
-              <h4 class="text-center">Contact Us</h4>
-              <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
-                ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque,
-                posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl
-                maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida
-                ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
   <div class="container-fluid">
-    <div class="section">
-      <div class="container-fluid">
-        <div class="row center">
-          <h5 class="header col s12 light">
-            <!-- {% for item in bookings %}
-              {{ item.firstname }}
-              {{ item.lastname }}
-              {{ item.date }}
-            {% endfor %} -->
-          </h5>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col s12 center">
+          <h4 class="text-center">Contact Us</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
+            ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque,
+            posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl
+            maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida
+            ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in
+            faucibus orci luctus et ultrices posuere cubilia Curae;</p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="section">
     <div class="row">
       <div class="col">
         <div class="scrollable">
-          <img src="{{ MEDIA_URL }}background3.jpg" alt="Unsplashed background img 3" class="w-100 h50"
-            alt="Responsive image">
+          <img src="{{ MEDIA_URL }}background3.jpg" alt="diorama of models" class="w-100">
         </div>
       </div>
     </div>
-{% endblock %}
+  </div>
+</div>
+    {% endblock %}

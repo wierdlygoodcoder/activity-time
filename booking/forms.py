@@ -33,3 +33,16 @@ class BookingForm(forms.ModelForm):
         }
 
     booking_time = forms.ChoiceField(choices=TIME_SLOTS)
+
+
+class EditBookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ('first_name', 'last_name', 'booking_date', 'booking_time',
+                  'email', 'phone_number', 'what_they_would_like_to_do',
+                  'assigned_staff_member',)
+        widgets = {
+            'booking_date': DateInput(),
+            }
+
+    booking_time = forms.ChoiceField(choices=TIME_SLOTS)

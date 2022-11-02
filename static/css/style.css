@@ -9,21 +9,53 @@ main {
   flex: 1 0 auto;
 }
 
-nav ul a,
-nav .brand-logo {
-  color: #444;
+.table{
+  margin-top: 2rem;
+}
+
+.bg-carolina-blue{
+  background-color: #5299D3;
+  color: #00008b;
 }
 
 .bg-midnight-green{
   background-color:#0B5563;
+  color: #beb8eb;
 }
 
 .bg-blue-purple{
   background-color: #beb8eb;
 }
+.text-blue-purple{
+  color: #beb8eb;
+  text-decoration: none;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.text-midnight-green{
+  color: #0b5563;
+  text-decoration: none;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(190, 184, 235)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(190, 184, 235);
+} 
 
 p {
   line-height: 2rem;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+tbody{
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .sidenav-trigger {
@@ -31,9 +63,8 @@ p {
 }
 
 .container-fluid {
-  line-height: 0;
+  line-height: 2rem;
   height: auto;
-  color: rgba(12, 11, 11, 0.9);
 }
 .container-fluid .section {
   width: 100%;
@@ -41,18 +72,16 @@ p {
 
 ul{
   list-style-type: none;
-  color: inherit;
 }
 
 li{
   padding-top: 2rem;
   padding-bottom: 0.5rem;
+  font-size: 24px;
+  font-weight: 300;
 
 }
 
-.list-group{
-  background-color:inherit;
-}
 .scrollable 
 {
     overflow: hidden;
@@ -63,10 +92,6 @@ li{
   justify-content: end;
 }
 
-footer a{
-  color: black;
-}
-
 label{
   display: block;
   margin: 10px auto;
@@ -74,6 +99,10 @@ label{
 
 .scrollable img{
   margin-top: -3px;
+}
+
+.text-wrap{
+  width: 20rem;
 }
 
 @media only screen and (max-width : 992px) {
@@ -92,11 +121,6 @@ label{
   }
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
+
 
 
