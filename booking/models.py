@@ -15,13 +15,13 @@ activity_choices = \
      ('advice on canvas poainting', 'Advice On Canvas Painting')]
 
 staff_members = \
-    [('1', 'Gareth'),
-     ('2', 'Emily'),
-     ('3', 'Rodger'),
-     ('4', 'Greg'),
-     ('5', 'Alan'),
-     ('6', 'Stevephen'),
-     ('7', 'Patrick')]
+    [('Gareth', 'Gareth'),
+     ('Emily', 'Emily'),
+     ('Rodger', 'Rodger'),
+     ('Greg', 'Greg'),
+     ('Alan', 'Alan'),
+     ('Stevephen', 'Stevephen'),
+     ('Patrick', 'Patrick')]
 
 
 class Booking(models.Model):

@@ -1,8 +1,17 @@
 from django import forms
 from django.forms import ModelForm
-from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
 from .models import Booking
+
+
+TIME_SLOTS = \
+    [('09:00', '09:00'),
+     ('10:00', '10:00'),
+     ('11:00', '11:00'),
+     ('12:00', '12:00'),
+     ('13:00', '13:00'),
+     ('14:00', '14:00'),
+     ('15:00', '15:00'),
+     ('16:00', '16:00')]
 
 
 class DateInput(forms.DateInput):
@@ -21,11 +30,6 @@ class BookingForm(forms.ModelForm):
                   'assigned_staff_member',)
         widgets = {
             'booking_date': DateInput(),
-            'booking_time': TimeInput(),
         }
 
-    # def clean(self):
-    #     booking_date = self.cleaned_data['booking_date']
-    #     if Booking.objects.filter(booking_date=booking_date).exists():
-    #         raise ValidationError("bookings already exists")
-    #     return render(request, "booking.html")
+    booking_time = forms.ChoiceField(choices=TIME_SLOTS)

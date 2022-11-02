@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.base import View
 from django.db.models.query import QuerySet
+from django.contrib import messages
 from .models import Booking
 from .forms import BookingForm
 
@@ -24,42 +25,42 @@ class News(View):
 
 class Create_Booking(View):
     def get(self, request, *args, **kwargs):
-        all_bookings = Booking.objects.all()
+        all_bookings = Booking.objects.all().order_by("booking_date", "booking_time")
 
         return render(
             request,
             "booking.html",
             {
-                "bookingform": BookingForm()
+                "bookingform": BookingForm(),
+                "all_bookings": all_bookings,
             },
         )
 
+    def post(self, request, *args, **kwargs):
+        all_bookings = Booking.objects.all()
 
-def post(self, request, *args, **kwargs):
-    all_bookings = Booking.objects.all()
+        booking_form = BookingForm(data=request.POST)
+        if booking_form.is_valid():
 
-    booking_form = BookingForm(request.POST)
-    if booking_form.is_valid():
+            booking_form.instance.email = request.user.email
+            booking = booking_form.save(commit=False)
 
-        booking_form.instance.email = request.user.email
-        booking = booking_form.save(commit=False)
-
-        booking_exists = Booking.objects.filter(booking_date=booking.booking_date, booking_time=booking.booking_time).exists()
-        print(booking_exists)
-        if booking_exists:
-            booking_form = bookingform()
-            return render(
+            booking_exists = Booking.objects.filter(booking_date=booking.booking_date, booking_time=booking.booking_time).exists()
+            print(booking_exists)
+            if booking_exists is False:
+                print(request.user)
+                print(request.user.id)
+                booking.user_id = request.user
+                booking.save()
+                messages.warning(request, 'booking succesful see your booking in view booking')
+                return render(request, "index.html")
+            else:
+                messages.error(request, 'time and date slots are already used')
+        messages.error(request, "Form not valid")
+        return render(
                 request,
                 "booking.html",
                 {
                     "bookingform": BookingForm(),
                 },
-               )
-
-        else:
-            print(request.user)
-            print(request.user.id)
-            booking.user_id = request.user
-            booking.save()
-            messages.warning(request, 'booking succesful see your booking in view booking')
-            return render(request, "index.html")
+            )
