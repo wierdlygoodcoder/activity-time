@@ -43,6 +43,7 @@
                   <th scope="col">Time</th>
                   <th scope="col">Staff Member</th>
                   <th scope="col">Edit Booking</th>
+                  <th scope="col">Delete Booking</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,22 +53,22 @@
                   <td>{{ booking.booking_time }}</td>
                   <td>{{ booking.assigned_staff_member }} - {{booking.id}}</td>
                   <td><a href="{% url 'edit_booking' booking.id %}">edit</a></td>
-                  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="delete-{{booking.id}}">
+                    Delete Booking
                   </button></td>
                 </tr>
-                {% endfor %}
                 <tr>
                   <th scope="row">{{ booking.booking_date }}</th>
                   <td>{{ booking.booking_time }}</td>
                   <td>{{ booking.assigned_staff_member }}</td>
                 </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
         </div>
 
-        <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal" id="delete-{{booking.id}}" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -79,7 +80,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <a href="/delete/{{ item.id }}"><button type="button" class="btn btn-primary" >Delete</button></a>
+                <a href="{% url 'delete_booking' booking.id %}"><button type="submit" class="btn btn-primary" >Delete</button></a>
               </div>
             </div>
           </div>

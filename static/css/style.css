@@ -34,6 +34,10 @@ main {
   margin-top: 10px;
 }
 
+.text-blue-purple:hover{
+  color:#beb8eb;
+}
+
 .text-midnight-green{
   color: #0b5563;
   text-decoration: none;
