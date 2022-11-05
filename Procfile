@@ -1,1 +1,1 @@
-web: gunicorn activity-times.wsgi
+web: gunicorn activity-time.wsgi
