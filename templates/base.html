@@ -17,7 +17,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg bg-midnight-green">
-    <div class="container-fluid ">
+    <div class="container-fluid g-0">
       <a href="{% url 'home' %}" class="navbar-brand text-blue-purple">Hobby Booking</a>
       <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +39,8 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="row">
+  <div class="container-fluid bg-carolina-blue g-0">
+    <div class="row g-0">
       <div class="col-md-8 offset-md-2">
         {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
@@ -56,7 +56,7 @@
   <footer class="bg-midnight-green">
     <div
       class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-      <div class="container-fluid">
+      <div class="container-fluid g-0">
         <div class="row">
           <div class="col-lg-6 col-md-4 col-sm-6">
             <h5>Rules for the activitys you want to do</h5>
@@ -77,9 +77,9 @@
             <h5 class="text-center">Social media</h5>
             <ul class="text-center">
               <li><a href="https://www.facebook.com/" class="text-blue-purple" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="https://www.twitter.com/" class="text-blue-purple" target="_blank">Twitter</a></li>
-              <li><a href="https://www.linkedin.co.uk/" class="text-blue-purple" target="_blank">Linked in</a></li>
-              <li><a href="https://www.youtube.co.uk/" class="text-blue-purple" target="_blank">Youtube</a></li>
+              <li><a href="https://www.twitter.com/" class="text-blue-purple" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.co.uk/" class="text-blue-purple" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              <li><a href="https://www.youtube.co.uk/" class="text-blue-purple" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
             </ul>
           </div>
         </div>

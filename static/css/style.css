@@ -1,4 +1,14 @@
 
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html{
+  width: 100%;
+}
+
  body {
   display: flex;
   min-height: 100vh;
@@ -107,6 +117,10 @@ label{
 
 .text-wrap{
   width: 20rem;
+}
+.padding-override{
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media only screen and (max-width : 992px) {
