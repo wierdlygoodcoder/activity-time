@@ -23,6 +23,11 @@ main {
   margin-top: 2rem;
 }
 
+.submit{
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
 .bg-carolina-blue{
   background-color: #5299D3;
   color: #00008b;
