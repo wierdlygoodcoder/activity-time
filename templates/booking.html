@@ -5,10 +5,10 @@
 
 
 <div class="section">
-  <div class="container-fluid bg-carolina-blue g-0">
-    <div class="row">
+  <div class="container-fluid bg-carolina-blue ">
+    <div class="row g-0 g-0">
       <div class="col-12">
-        <div class="scrollable">
+        <div class="scrollable top-img">
           <img
             src="https://res.cloudinary.com/dxerxpdfh/image/upload/v1667610128/static/images/people-painting-together-intext5_ctfdh9.jpg"
             class="w-100 img-responsive" alt="canvas painting">
@@ -18,109 +18,104 @@
   </div>
 </div>
 
-<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-  <div class="container-fluid bg-carolina-blue g-0">
-    <h1 class="text-center text-capitalize">book in form</h1>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="icon-block">
+<div class="container-fluid bg-carolina-blue ">
+  <h1 class="text-center text-capitalize">book in form</h1>
+  <div class="row g-0">
+    <div class="col-12 col-sm-6 col-md-12">
+      <div class="icon-block">
 
-          <h3> Book in in here for an awesome time </h3>
-          <p class="text-capitalize">hello {{ user.username}}</p>
-          <form method="post" style="margin-top: 1rem;">
-            {{ bookingform | crispy }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-primary btn-lg submit" value="submit">Submit</button>
-          </form>
-        </div>
+        <h3> Book in in here for an awesome time </h3>
+        <p class="text-capitalize">hello {{ user.username}}</p>
+        <form method="post" style="margin-top: 1rem;">
+          {{ bookingform | crispy }}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary btn-lg submit" value="submit">Submit</button>
+        </form>
       </div>
+    </div>
 
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="icon-block">
-          <h5 class="text-capitalize text-center">Current bookings</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Staff Member</th>
-                <th scope="col">Edit Booking</th>
-                <th scope="col">Delete Booking</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for booking in all_bookings %}
-              <tr>
-                <th scope="row">{{ booking.booking_date }}</th>
-                <td>{{ booking.booking_time }}</td>
-                <td>{{ booking.assigned_staff_member }} - {{booking.id}}</td>
-                <td><a href="{% url 'edit_booking' booking.id %}">edit</a></td>
-                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#delete-{{booking.id}}">
-                    Delete Booking
-                  </button>
-                  <div class="modal" id="delete-{{booking.id}}" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">delete booking</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <p>are you sure you want to delete this booking</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                          <a href="{% url 'delete_booking' booking.id %}" class="btn btn-primary">Delete</a>
-                        </div>
+    <div class="col-12 col-sm-6 col-md-6">
+      <div class="icon-block">
+        <h5 class="text-capitalize text-center">Current bookings</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Staff Member</th>
+              <th scope="col">Edit Booking</th>
+              <th scope="col">Delete Booking</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in all_bookings %}
+            <tr>
+              <th scope="row">{{ booking.booking_date }}</th>
+              <td>{{ booking.booking_time }}</td>
+              <td>{{ booking.assigned_staff_member }} - {{booking.id}}</td>
+              <td><a href="{% url 'edit_booking' booking.id %}">edit</a></td>
+              <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#delete-{{booking.id}}">
+                  Delete Booking
+                </button>
+                <div class="modal" id="delete-{{booking.id}}" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">delete booking</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>are you sure you want to delete this booking</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href="{% url 'delete_booking' booking.id %}" class="btn btn-primary">Delete</a>
                       </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="icon-block">
-          <h5 class="text-center">Booking Advice</h5>
-          <p>To book in for an activity please use the form to the left handside. please make sure
-            time and date of activity do not mach the currently booked in sessions, as this will be rejected. </p>
-        </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
 
-
-
-  <div class="container-fluid g-0">
-    <div class="row">
-      <div class="col-12">
-        <img
-          src="https://res.cloudinary.com/dxerxpdfh/image/upload/v1667610136/static/images/warhammer-age-of-sigmar-people-playing-warhammer-world_lysfnd.jpg"
-          class="w-100" alt="Playing a Board Game">
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="icon-block text-wrap">
+        <h5 class="text-center">Booking Advice</h5>
+        <p class="text-end">To book in for an activity please use the form to the left handside. please make sure
+          time and date of activity do not mach the currently booked in sessions, as this will be rejected. </p>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-  <div class="container-fluid g-0 bg-carolina-blue">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="col s12 center">
+<div class="container-fluid g-0">
+  <div class="row g-0 g-0">
+    <div class="col-12">
+      <div class="scrollable">
+        <img
+          src="https://res.cloudinary.com/dxerxpdfh/image/upload/v1667610136/static/images/warhammer-age-of-sigmar-people-playing-warhammer-world_lysfnd.jpg"
+          class="w-100 top-image" alt="Playing a Board Game">
+      </div>
+    </div>
+
+    <div class="bg-carolina-blue">
+      <div class="row g-0 g-0">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <h4 class="text-capitalize text-center">we are opening a small restarant</h4>
           <p>
             We have a limited bar and menu for the food we are delighted to share with you all.
-            By popular demand, we have added this to start with we will just serve bottled drinks and snacks depending
-            on how popular this is we will in time increase this soon please ask a staff member for more information.
+            By popular demand, we have added this to start with we will just serve bottled drinks and snacks
+            depending
+            on how popular this is we will in time increase this soon please ask a staff member for more
+            information.
             Here's what we have to offer:
           </p>
-
           <table class="table table-sm bg-carolina-blue">
             <tbody>
               <tr>
@@ -137,17 +132,15 @@
       </div>
     </div>
   </div>
+</div>
 
-
-
-  <div class="container-fluid g-0">
-    <div class="row">
-      <div class="col-12">
-        <div class="scrollable">
-          <img
-            src="https://res.cloudinary.com/dxerxpdfh/image/upload/v1667610167/static/images/277900171_503249018136607_8066799295243573873_n_oljupu.jpg"
-            alt="diorama of models" class="w-100">
-        </div>
+<div class="container-fluid g-0">
+  <div class="row g-0 g-0">
+    <div class="col-12">
+      <div class="scrollable">
+        <img
+          src="https://res.cloudinary.com/dxerxpdfh/image/upload/v1667610167/static/images/277900171_503249018136607_8066799295243573873_n_oljupu.jpg"
+          alt="diorama of models" class="w-100">
       </div>
     </div>
   </div>
